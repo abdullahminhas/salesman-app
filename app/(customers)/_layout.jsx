@@ -18,7 +18,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: "Home",
+          title: "Customers",
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon
               name={focused ? "home" : "home-outline"}
@@ -29,25 +29,12 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="orders"
+        name="customerDetails/[id]"
         options={{
-          title: "Orders",
+          title: "Customer Details",
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon
-              name={focused ? "code-slash" : "code-slash-outline"}
-              color={color}
-            />
-          ),
-          tabBarStyle: { display: "none" },
-        }}
-      />
-      <Tabs.Screen
-        name="newOrder"
-        options={{
-          title: "new order",
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon
-              name={focused ? "code-slash" : "code-slash-outline"}
+              name={focused ? "home" : "home-outline"}
               color={color}
             />
           ),

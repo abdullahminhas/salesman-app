@@ -18,15 +18,15 @@ const bottomNav = () => {
       className="flex-row gap-5 border border-border p-3 w-fit bg-white dark:bg-black rounded-2xl absolute bottom-8"
       style={{ left: "50%", transform: [{ translateX: -133 }] }}
     >
-      <Link href="/" asChild>
+      <Link href="(tabs)" asChild>
         <Pressable
           className={`flex-row p-3 rounded-full ${
-            isActive("index") ? "bg-black dark:bg-white" : "bg-accent"
+            isActive("(tabs)") ? "bg-black dark:bg-white" : "bg-accent"
           }`}
         >
           <House
             color={
-              isActive("index")
+              isActive("(tabs)")
                 ? colorScheme === "dark"
                   ? "#000" // Route is active and colorScheme is dark
                   : "#fff" // Route is active and colorScheme is not dark
@@ -75,15 +75,15 @@ const bottomNav = () => {
           />
         </Pressable>
       </Link>
-      <Link href="#" asChild>
+      <Link href="(customers)" asChild>
         <Pressable
           className={`flex-row p-3 rounded-full ${
-            isActive("#") ? "bg-black dark:bg-white" : "bg-accent"
+            isActive("(customers)") ? "bg-black dark:bg-white" : "bg-accent"
           }`}
         >
           <Users
             color={
-              isActive("#")
+              isActive("/(customers)")
                 ? colorScheme === "dark"
                   ? "#000" // Route is active and colorScheme is dark
                   : "#fff" // Route is active and colorScheme is not dark

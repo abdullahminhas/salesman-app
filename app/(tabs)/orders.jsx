@@ -19,8 +19,10 @@ import { Link } from "expo-router";
 
 import { Search, BadgePlus } from "lucide-react-native";
 import { useColorScheme } from "@/hooks/useColorScheme";
+import { useRouter } from "expo-router";
 
 const orders = () => {
+  const router = useRouter();
   const colorScheme = useColorScheme();
   const salesmanID = "SL-UI-167835";
   const [salesman, setSalesman] = useState([]);
@@ -199,21 +201,18 @@ const orders = () => {
           <CardTitle>Previous Orders</CardTitle>
           {/* <CardDescription>Card Description</CardDescription> */}
         </CardHeader>
-        <CardContent className="flex gap-4">
+        <CardContent className="flex">
           {Object.keys(salesman).length !== 0 &&
             salesman.orders?.map((order, index) => (
-              <ButtonLink
+              <Button
                 className={
                   salesman.orders.length === index + 1
-                    ? "items-start h-fit"
-                    : "items-start border-b-[0.5px] border-gray-300 pb-4 hover:bg-black h-fit"
+                    ? "items-start h-fit pt-4"
+                    : "items-start border-b-[0.5px] border-gray-300 pb-4 pt-4 hover:bg-black h-fit"
                 }
                 variant="ghost"
                 size="auto"
-                href={{
-                  pathname: "/(tabs)/orderDetails/[id]",
-                  params: { id: `${index}` },
-                }}
+                onPress={() => router.push(`/orderDetails/${order.id}`)}
                 key={index}
               >
                 <View className="flex flex-row items-center justify-between w-full">
@@ -247,7 +246,7 @@ const orders = () => {
                     <Text>Paid</Text>
                   </Badge>
                 </View>
-              </ButtonLink>
+              </Button>
             ))}
         </CardContent>
       </Card>
